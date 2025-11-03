@@ -1,0 +1,77 @@
+.about {
+  padding: 80px 10%;
+  background-color: #0f172a;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-left,
+.about-right {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.about-left h3 {
+  font-size: 1.5rem;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.about-right h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6b35;
+  text-align: left;
+}
+
+.about-right p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .about-container { flex-direction: column; text-align: center; }
+  .about-right h2, .about-right p { text-align: center; }
+}
+
+.img-ring {
+  width: 180px;           /* outer ring size */
+  height: 180px;
+  border-radius: 50%;    
+  padding: 15px;           /* ring thickness */
+  display: flex;
+  border: 2px solid #ff6b35;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  width: 100%;            /* image fills container */
+  height: 100%;
+  object-fit: cover;      /* scale image properly */
+  display: block;
+}

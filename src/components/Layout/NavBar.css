@@ -1,0 +1,65 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: transparent;
+  position: fixed;
+  width: 90%;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+/* Remove default underline for all links */
+.nav-links a {
+  color: #f8fafc;
+  font-weight: 400;
+  text-decoration: none; /* remove default underline */
+  position: relative; /* for pseudo-element positioning */
+  transition: color 0.3s;
+}
+
+/* Active link underline */
+.nav-links li.active a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* adjust distance from text */
+  height: 2px; /* thickness of underline */
+  width: 100%;
+  background-color: #f97316; /* underline color */
+  border-radius: 2px; /* rounded edges for smooth look */
+}
+
+/* Optional: Hover effect for smooth transition */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  background-color: #f97316;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: black;
+  background-color: #f8fafc;
+   height:2.5rem;
+  width: 3rem;
+}
