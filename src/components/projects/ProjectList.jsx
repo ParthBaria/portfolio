@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import "./ProjectList.css";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 
@@ -20,18 +20,6 @@ const projects = [
     description:
       "Responsive web platform for ordering food online with cart management and order tracking.",
     tech: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    title: "Skill-Based Learning Platform",
-    description:
-      "Gamified e-learning site with 1v1 challenges, ranking system, and practical labs for real skill growth.",
-    tech: ["React", "Firebase", "Node.js"],
-  },
-  {
-    title: "User Authentication System",
-    description:
-      "PHP and MySQL-based registration and login system with session handling and secure password storage.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
   },
 ];
 

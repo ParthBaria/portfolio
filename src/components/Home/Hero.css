@@ -79,4 +79,27 @@
   font-size: 0.9rem;
   font-weight: bolder;
   color: gray;
+  z-index: 3;
+
 }
+.skills li.active{
+color: whitesmoke;
+}
+
+
+.skills {
+  position: relative;
+  padding: 40px;
+}
+
+.scroll-line {
+  height: 4px;
+  background-color: #f97316;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  /* transform: translate(-50%,-50%); */
+  transform-origin: left;
+}
+

@@ -7,7 +7,7 @@ const About = () => {
       <div className="about-container">
         <div className="about-left">
           <div className="img-ring">
-            <img src={img} alt="Web Development Logo" className="profile-img"  />
+            <img src={img} alt="Web Development Logo" className="profile-img" />
           </div>
           <h3>Web Development</h3>
         </div>
@@ -22,11 +22,33 @@ const About = () => {
             create seamless digital experiences that are both functional and
             visually engaging.
             <br />
-            <br />
-            I love sharing my knowledge about full-stack development,
+            <br />I love sharing my knowledge about full-stack development,
             JavaScript, and modern web technologies to help others in the
-            developer community. You can find me on LinkedIn and GitHub, where I
-            post insights, projects, and technical breakdowns.
+            developer community. You can find me on{" "}
+            <span>
+              {" "}
+              <a
+                href="https://www.linkedin.com/in/parth-baria-bbb563265/"
+                target="_blank"
+                rel="noreferrer"
+                 style={{ textDecoration: "underline" }}
+              >
+                LinkedIn
+              </a>
+            </span>{" "}
+            and{" "}
+            <span>
+              <a
+                href="https://github.com/ParthBaria"
+                target="_blank"
+          
+                rel="noreferrer"
+                style={{ textDecoration: "underline" }}
+              >
+                GitHub
+              </a>
+            </span>
+            , where I post insights, projects, and technical breakdowns.
             <br />
             <br />
             I’m open to exciting opportunities where I can apply my skills,

@@ -74,4 +74,5 @@
   height: 100%;
   object-fit: cover;      /* scale image properly */
   display: block;
+  user-select:none;
 }

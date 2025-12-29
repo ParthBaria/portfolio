@@ -16,6 +16,9 @@ const NavBar = () => {
         <li className={currentPath === "/projects" ? "active" : ""}>
           <Link to="/projects">Projects</Link>
         </li>
+        <li className={currentPath === "/Learning" ? "active" : ""}>
+          <Link to="/Learning">Learning</Link>
+        </li>
         <li className={currentPath === "/contact" ? "active" : ""}>
           <Link to="/contact">Contact</Link>
         </li>
