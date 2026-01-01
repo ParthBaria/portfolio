@@ -70,7 +70,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="cowork-container">
-          <img src={cowroking}  />
+          <img src={cowroking} alt="cowroking" />
         </div>
       </section>
 
