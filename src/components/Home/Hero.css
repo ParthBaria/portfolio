@@ -1,14 +1,29 @@
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 120px 10% 80px;
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* exact 50 / 50 */
+  align-items: center;
+  padding: 0 80px;
+  background: #0f172a;
 }
 
+/* Left side */
 .hero-text {
-  max-width: 600px;
+  max-width: 520px;
 }
+
+/* Right side */
+.cowork-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cowork-container img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 .hero-text h3 { font-size: 7.5rem; }
 
@@ -102,4 +117,3 @@ color: whitesmoke;
   /* transform: translate(-50%,-50%); */
   transform-origin: left;
 }
-

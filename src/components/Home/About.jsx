@@ -1,15 +1,12 @@
 import React from "react";
 import "./About.css";
-import img from "../../assets/development.png";
+import img from "../../assets/presentation-21.png";
 const About = () => {
   return (
     <section className="about" id="about">
       <div className="about-container">
         <div className="about-left">
-          <div className="img-ring">
             <img src={img} alt="Web Development Logo" className="profile-img" />
-          </div>
-          <h3>Web Development</h3>
         </div>
 
         <div className="about-right">

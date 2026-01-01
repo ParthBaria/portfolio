@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "motion/react";
-
+import cowroking from "../../assets/coworking-31.png";
 const Hero = () => {
   const navigate = useNavigate();
   const skillRef = useRef(null);
@@ -56,7 +56,7 @@ const Hero = () => {
       <section className="hero" id="home">
         <div className="hero-text">
           <h3>
-            Hello<span className="dot highlight">.</span>
+            Hello<span className=" highlight">.</span>
           </h3>
           <h1> I'm Parth</h1>
           <h2>Web Developer</h2>
@@ -68,6 +68,9 @@ const Hero = () => {
               My resume
             </button>
           </div>
+        </div>
+        <div className="cowork-container">
+          <img src={cowroking}  />
         </div>
       </section>
 
