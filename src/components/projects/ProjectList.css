@@ -6,7 +6,6 @@
   position: relative;
 }
 
-
 .project-stack {
   display: flex;
   flex-direction: column;
@@ -22,12 +21,11 @@
   background-color: #0f172a;
   border: 1px solid #334155;
   border-radius: 15px;
-  padding: 50px;
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.projectWrapper{
+.projectWrapper {
   display: flex;
   justify-content: center;
 }
@@ -79,16 +77,22 @@
 .card-index {
   color: #f97316;
   margin: 0;
-  font-family: "Azeret Mono", monospace;
   font-size: 50px;
   font-weight: 700;
   letter-spacing: -3px;
   line-height: 1.2;
   position: absolute;
   display: inline-block;
-  top: calc(50% - 25px);
+  top: calc(95% - 25px);
   left: calc(50% + 10rem);
+  position: absolute;
+  right: 40px;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: rgba(249, 115, 22, 0.35);
+  font-family: "Azeret Mono", monospace;
 }
+
 /* SPLIT CARD */
 .project-card.split {
   display: flex;
@@ -116,6 +120,7 @@
   bottom: 20px;
   left: 20px;
   display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
@@ -129,6 +134,7 @@
   padding: 12px;
   color: #f97316;
   overflow: hidden;
+
   transition: box-shadow 0.3s ease;
 }
 
@@ -165,3 +171,73 @@
   padding: 40px;
   text-align: left;
 }
+.project-card.image-bg {
+  height: 70vh;
+  width: 70%;
+  position: relative;
+  margin: 40px 0;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  border-radius: 16px;
+  border: 1px solid #334155;
+  overflow: hidden;
+}
+
+/* SEMI-TRANSPARENT OVERLAY */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    145deg,
+    transparent 0%,
+    transparent 50%,
+    rgb(15, 23, 42) 50%,
+    rgb(15, 23, 42) 100%
+  );
+
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  transition: background2s ease;
+}
+
+/* TEXT */
+.project-overlay h3 {
+  color: #f97316;
+  font-size: 2rem;
+}
+
+.project-overlay p {
+  color: #e2e8f0;
+  max-width: 600px;
+  margin: 15px 0;
+}
+
+.project-details {
+  width: 50%;
+  margin-left: 50%;
+}
+/* TECH STACK */
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+}
+
+.tech-list li {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid #334155;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* YOUR INDEX — SAFE */
