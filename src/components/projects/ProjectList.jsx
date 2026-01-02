@@ -23,7 +23,7 @@ const projects = [
     tech: ["React", "Node.js", "Redis", "MongoDB", "REST API", "Caching"],
     image: Infoimg,
     github: "https://github.com/yourusername/infostream",
-    live: "https://infostream.vercel.app",
+    live: "https://infostream-523f0.web.app",
   },
 
   {
@@ -58,43 +58,41 @@ function ProjectCard({ project, index }) {
 
   return (
     <div className="projectWrapper" ref={ref}>
-      <div className="project-card split">
-        {/* LEFT IMAGE SIDE */}
-        <div className="project-image">
-          <img src={project.image} alt={project.title} />
+      <div
+        className="project-card image-bg"
+        style={{ backgroundImage: `url(${project.image})` }}
+      >
+        {/* CONTENT OVERLAY */}
+        <div className="project-overlay">
+          <div className="project-details">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
 
-          <div className="image-actions">
-            {project.github && (
-              <ActionButton
-                label="GitHub"
-                link={project.github}
-                icon={<FaGithub />}
-              />
-            )}
-
-            {project.live && (
-              <ActionButton
-                label="Live Demo"
-                link={project.live}
-                icon={<FaExternalLinkAlt />}
-              />
-            )}
+            <ul className="tech-list">
+              {project.tech.map((t, i) => (
+                <li key={i}>{t}</li>
+              ))}
+            </ul>
           </div>
         </div>
+        <div className="image-actions">
+          {project.github && (
+            <ActionButton
+              label="GitHub"
+              link={project.github}
+              icon={<FaGithub />}
+            />
+          )}
 
-        {/* RIGHT CONTENT */}
-        <div className="project-content">
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-
-          <ul className="tech-list">
-            {project.tech.map((t, i) => (
-              <li key={i}>{t}</li>
-            ))}
-          </ul>
+          {project.live && (
+            <ActionButton
+              label="Live Demo"
+              link={project.live}
+              icon={<FaExternalLinkAlt />}
+            />
+          )}
         </div>
-
-        {/* YOUR SCROLL INDEX — UNTOUCHED */}
+        {/* SCROLL INDEX — UNTOUCHED */}
         <motion.h2 style={{ y }} className="card-index">
           {`#00${index}`}
         </motion.h2>
@@ -105,18 +103,12 @@ function ProjectCard({ project, index }) {
 
 function ActionButton({ label, link, icon }) {
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noreferrer"
-      className="action-btn"
-    >
+    <a href={link} target="_blank" rel="noreferrer" className="action-btn">
       <span className="icon">{icon}</span>
       <span className="label">{label}</span>
     </a>
   );
 }
-
 
 const ProjectList = () => {
   const containerRef = useRef(null);
