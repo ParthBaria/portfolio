@@ -1,17 +1,24 @@
-import React from "react";
+import { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 
 const NavBar = () => {
+  const navLinks = useRef();
   const location = useLocation(); // get current path
   const currentPath = location.pathname;
+  const [openMenu, setOpenMenu] = useState(false);
 
+  const menuToggle = () => {
+    navLinks.current.classList.toggle("active");
+
+    setOpenMenu((val) => !val);
+  };
   return (
     <nav className="navbar">
       <div className="logo">Parth Baria</div>
-      <ul className="nav-links">
+      <ul className="nav-links" ref={navLinks}>
         <li className={currentPath === "/" ? "active" : ""}>
           <Link to="/">Home</Link>
         </li>
@@ -24,11 +31,28 @@ const NavBar = () => {
         <li className={currentPath === "/contact" ? "active" : ""}>
           <Link to="/contact">Contact</Link>
         </li>
+        {openMenu && (
+          <div
+            className="barBtn"
+            onClick={() => {
+              menuToggle();
+            }}
+          >
+            <FaTimes />
+          </div>
+        )}
       </ul>
-      <input type="checkbox" hidden id="menu" />
-      <label for="menu" className="barBtn">
-        <FaBars />
-      </label>
+      {!openMenu && (
+        <div
+          id="menu-toggle"
+          className="barBtn"
+          onClick={() => {
+            menuToggle();
+          }}
+        >
+          <FaBars />
+        </div>
+      )}
     </nav>
   );
 };

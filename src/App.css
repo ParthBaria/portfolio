@@ -215,7 +215,7 @@ a {
   text-align: justify;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .about-container {
     flex-direction: column;
     text-align: center;

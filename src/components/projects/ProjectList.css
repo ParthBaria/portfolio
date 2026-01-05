@@ -230,7 +230,7 @@
 
 /* YOUR INDEX — SAFE */
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .project-card.image-bg {
     background-size: auto;
     background-position: left;

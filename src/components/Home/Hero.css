@@ -65,7 +65,7 @@
   box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .hero {
     flex-direction: column-reverse;
     text-align: left;
