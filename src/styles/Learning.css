@@ -82,3 +82,12 @@
   font-size: 14px;
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .dot {
+    position: absolute;
+  }
+  .content {
+    padding-left: 2rem;
+  }
+}

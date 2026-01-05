@@ -1,6 +1,8 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import "./NavBar.css"
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./NavBar.css";
+import { FaGraduationCap } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 const NavBar = () => {
   const location = useLocation(); // get current path
@@ -23,8 +25,12 @@ const NavBar = () => {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
+      <input type="checkbox" hidden id="menu" />
+      <label for="menu" className="barBtn">
+        <FaBars />
+      </label>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

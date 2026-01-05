@@ -24,8 +24,9 @@
   height: auto;
 }
 
-
-.hero-text h3 { font-size: 7.5rem; }
+.hero-text h3 {
+  font-size: 7.5rem;
+}
 
 .hero-text h1::before {
   content: "______";
@@ -42,7 +43,9 @@
   font-weight: lighter;
 }
 
-.hero-text .highlight { color: #f97316; }
+.hero-text .highlight {
+  color: #f97316;
+}
 
 .hero-text h2 {
   font-size: 4.8rem;
@@ -65,15 +68,39 @@
 @media (max-width: 768px) {
   .hero {
     flex-direction: column-reverse;
-    text-align: center;
+    text-align: left;
   }
 
   .hero-img img {
     width: 200px;
     margin-bottom: 20px;
   }
-}
 
+  .hero-text h3 {
+    font-size: 5.5rem;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text h2 {
+    font-size: 3.8rem;
+  }
+  .hero {
+    padding: 0 20px;
+  }
+  .cowork-container img {
+    max-width: 10rem;
+    height: auto;
+  }
+  .cowork-container {
+    position: absolute;
+    bottom: 0;
+    right: -24px;
+  }
+  .btn {
+    padding: 7px 4px;
+  }
+}
 .skills {
   background-color: #1e293b;
   padding: 20px 10%;
@@ -95,12 +122,10 @@
   font-weight: bolder;
   color: gray;
   z-index: 3;
-
 }
-.skills li.active{
-color: whitesmoke;
+.skills li.active {
+  color: whitesmoke;
 }
-
 
 .skills {
   position: relative;

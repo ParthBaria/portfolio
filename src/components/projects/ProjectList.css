@@ -150,19 +150,7 @@
   max-width: 0;
   opacity: 0;
   white-space: nowrap;
-  margin-left: 10px;
   color: #f1f5f9;
-  transition: max-width 0.4s ease, opacity 0.3s ease;
-}
-
-/* HOVER ONLY */
-.action-btn:hover .label {
-  max-width: 120px;
-  opacity: 1;
-}
-
-.action-btn:hover {
-  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
 }
 
 /* RIGHT CONTENT */
@@ -173,12 +161,12 @@
 }
 .project-card.image-bg {
   height: 70vh;
-  width: 70%;
+  width: 55%;
   position: relative;
   margin: 40px 0;
 
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left;
   background-size: contain;
 
   border-radius: 16px;
@@ -241,3 +229,39 @@
 }
 
 /* YOUR INDEX — SAFE */
+
+@media (max-width: 768px) {
+  .project-card.image-bg {
+    background-size: auto;
+    background-position: left;
+    width: 80%;
+  }
+  .project-overlay {
+    background: transparent;
+  }
+  .project-details {
+    width: 100%;
+    margin-left: 0;
+  }
+  .image-actions {
+    right: 10px;
+    left: auto;
+  }
+  .project-overlay {
+    justify-content: end;
+    padding: 5px;
+  }
+  .project-overlay p {
+    display: none;
+  }
+  .tech-list {
+    max-width: 200px;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    padding-left: 10px;
+  }
+  .tech-list li {
+    background-color: rgb(30, 41, 59);
+    padding: 2px 6px;
+  }
+}

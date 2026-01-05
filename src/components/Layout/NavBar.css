@@ -60,6 +60,26 @@
 .nav-links a:hover {
   color: black;
   background-color: #f8fafc;
-   height:2.5rem;
+  height: 2.5rem;
   width: 3rem;
+}
+.barBtn {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    transform: translateX(-10%);
+    margin-top: 10rem;
+    transition: all 0.3s ease;
+  }
+  #menu:checked ~ .nav-links {
+    transform: translateX(20%);
+  }
+  .barBtn {
+    display: block;
+  }
 }
