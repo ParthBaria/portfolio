@@ -2,8 +2,8 @@
   background-color: #1e293b;
   color: white;
   text-align: center;
-  padding: 0;
   position: relative;
+  padding-top: 2rem;
 }
 
 .project-stack {
@@ -176,25 +176,37 @@
 
 /* SEMI-TRANSPARENT OVERLAY */
 .project-overlay {
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    145deg,
-    transparent 0%,
-    transparent 50%,
-    rgb(15, 23, 42) 50%,
-    rgb(15, 23, 42) 100%
-  );
-
-  padding: 50px;
+  padding: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: left;
   transition: background2s ease;
+  gap: 10px;
 }
 
+.img-bg {
+  width: 50%;
+}
+.image-wrapper {
+  width: 100%;
+  height: 200px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-fallback {
+  font-size: 48px;
+  color: #64748b;
+}
+
+
+.img-bg img {
+  width: 100%;
+  height: 70%;
+}
 /* TEXT */
 .project-overlay h3 {
   color: #f97316;
@@ -209,7 +221,6 @@
 
 .project-details {
   width: 50%;
-  margin-left: 50%;
 }
 /* TECH STACK */
 .tech-list {
@@ -232,6 +243,8 @@
 
 @media (max-width: 550px) {
   .project-card.image-bg {
+    padding: 25px;
+    height: 40vh;
     background-size: auto;
     background-position: left;
     width: 80%;
@@ -239,21 +252,26 @@
   .project-overlay {
     background: transparent;
   }
+  .project-overlay p {
+    padding-right: 10px;
+  }
   .project-details {
     width: 100%;
     margin-left: 0;
+  }
+  .img-bg {
+    display: none;
   }
   .image-actions {
     right: 10px;
     left: auto;
   }
+  
   .project-overlay {
     justify-content: end;
     padding: 5px;
   }
-  .project-overlay p {
-    display: none;
-  }
+
   .tech-list {
     max-width: 200px;
     overflow: scroll;
@@ -263,5 +281,12 @@
   .tech-list li {
     background-color: rgb(30, 41, 59);
     padding: 2px 6px;
+  }
+  .card-index {
+    left: calc(50% + 1rem);
+    top: calc(95% - -16px);
+  }
+  .progress-bar{
+    bottom: 87px;
   }
 }

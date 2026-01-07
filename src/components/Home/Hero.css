@@ -65,42 +65,17 @@
   box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
 }
 
-@media (max-width: 550px) {
-  .hero {
-    flex-direction: column-reverse;
-    text-align: left;
-  }
-
-  .hero-img img {
-    width: 200px;
-    margin-bottom: 20px;
-  }
-
-  .hero-text h3 {
-    font-size: 5.5rem;
-  }
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-  .hero-text h2 {
-    font-size: 3.8rem;
-  }
-  .hero {
-    padding: 0 20px;
-  }
-  .cowork-container img {
-    max-width: 10rem;
-    height: auto;
-  }
-  .cowork-container {
-    position: absolute;
-    bottom: 0;
-    right: -24px;
-  }
-  .btn {
-    padding: 7px 4px;
-  }
+.skills ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+
+.skills .icon {
+  font-size: 22px;
+}
+
+
 .skills {
   background-color: #1e293b;
   padding: 20px 10%;
@@ -139,6 +114,52 @@
   top: 50%;
   left: 0;
   z-index: 1;
-  /* transform: translate(-50%,-50%); */
   transform-origin: left;
+}
+
+
+@media (max-width: 550px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: left;
+  }
+
+  .scroll-line {
+    top: 0%;
+    left: calc(50% - 3.7rem);
+    transform: rotate(90deg);
+  }
+.skills ul{
+  flex-direction: column;
+  align-content: center;
+}
+  .hero-img img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h3 {
+    font-size: 5.5rem;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text h2 {
+    font-size: 3.8rem;
+  }
+  .hero {
+    padding: 0 20px;
+  }
+  .cowork-container img {
+    max-width: 10rem;
+    height: auto;
+  }
+  .cowork-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .btn {
+    padding: 7px 4px;
+  }
 }

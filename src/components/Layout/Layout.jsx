@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: 20 }}>
+      <main >
         <Outlet /> {/* all pages will render here */}
       </main>
       <Footer />

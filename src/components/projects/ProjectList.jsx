@@ -1,17 +1,25 @@
 import { useRef } from "react";
 import "./ProjectList.css";
 import Infoimg from "../../assets/project-image/infostream.png";
+import Digimg from "../../assets/project-image/health-card.png";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaImage } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
     title: "Digital Health Card",
     description:
-      "A secure MERN-based platform for storing patient medical history, prescriptions, and doctor consultations with strict role-based access control for doctors and patients.",
-    tech: ["MongoDB", "Express", "React", "Node.js", "JWT", "RBAC"],
-    image: "/projects/health-card.png",
+      "A MERN-based application for managing patient medical records, prescriptions, and doctor consultations. Includes authentication, role-based access control, and secure CRUD operations for doctors and patients.",
+    tech: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "JWT Authentication",
+      "Role-Based Access Control",
+    ],
+    image: Digimg,
     github: "https://github.com/yourusername/digital-health-card",
     live: "https://digitalhealthcard.vercel.app",
   },
@@ -19,8 +27,8 @@ const projects = [
   {
     title: "InfoStream",
     description:
-      "A real-time information streaming platform that delivers categorized updates using Redis-backed caching, optimized APIs, and a responsive React frontend for high-performance data consumption.",
-    tech: ["React", "Node.js", "Redis", "MongoDB", "REST API", "Caching"],
+      "A web application for displaying categorized information using REST APIs, featuring optimized API calls and a responsive React frontend for efficient data consumption.",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
     image: Infoimg,
     github: "https://github.com/yourusername/infostream",
     live: "https://infostream-523f0.web.app",
@@ -29,21 +37,17 @@ const projects = [
   {
     title: "Theft Detection System (IoT)",
     description:
-      "An IoT-based security system using NodeMCU and PIR sensors to detect unauthorized motion and trigger real-time alerts through buzzer and notifications.",
-    tech: ["IoT", "NodeMCU", "PIR Sensor", "Embedded C"],
-    image: "/projects/theft-detection.png",
-    github: "https://github.com/yourusername/theft-detection-iot",
-    live: "",
+      "An IoT-based security system that detects motion using a PIR sensor and NodeMCU, triggering alerts through a buzzer for unauthorized access.",
+    tech: ["IoT", "NodeMCU (ESP8266)", "PIR Sensor", "Embedded C"],
+    image: null,
   },
 
   {
     title: "Food Delivery Website",
     description:
-      "A responsive food ordering platform featuring menu browsing, cart management, and basic order tracking with a clean UI.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    image: "/projects/food-delivery.png",
-    github: "https://github.com/yourusername/food-delivery-website",
-    live: "https://fooddelivery-demo.netlify.app",
+      "A responsive frontend web application for browsing food menus, managing a cart, and placing orders with a simple and user-friendly interface.",
+    tech: ["HTML5", "CSS3", "JavaScript"],
+    image: null,
   },
 ];
 
@@ -58,12 +62,18 @@ function ProjectCard({ project, index }) {
 
   return (
     <div className="projectWrapper" ref={ref}>
-      <div
-        className="project-card image-bg"
-        style={{ backgroundImage: `url(${project.image})` }}
-      >
+      <div className="project-card image-bg">
         {/* CONTENT OVERLAY */}
         <div className="project-overlay">
+          <div className="img-bg">
+            {project.image ? (
+              <img src={project.image} alt="" />
+            ) : (
+              <div className="image-wrapper">
+                <FaImage className="image-fallback" />
+              </div>
+            )}
+          </div>
           <div className="project-details">
             <h3>{project.title}</h3>
             <p>{project.description}</p>

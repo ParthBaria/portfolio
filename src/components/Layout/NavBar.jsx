@@ -20,16 +20,44 @@ const NavBar = () => {
       <div className="logo">Parth Baria</div>
       <ul className="nav-links" ref={navLinks}>
         <li className={currentPath === "/" ? "active" : ""}>
-          <Link to="/">Home</Link>
+          <Link
+            to="/"
+            onClick={() => {
+              menuToggle();
+            }}
+          >
+            Home
+          </Link>
         </li>
         <li className={currentPath === "/projects" ? "active" : ""}>
-          <Link to="/projects">Projects</Link>
+          <Link
+            to="/projects"
+            onClick={() => {
+              menuToggle();
+            }}
+          >
+            Projects
+          </Link>
         </li>
         <li className={currentPath === "/Learning" ? "active" : ""}>
-          <Link to="/Learning">Learning</Link>
+          <Link
+            to="/Learning"
+            onClick={() => {
+              menuToggle();
+            }}
+          >
+            Learning
+          </Link>
         </li>
         <li className={currentPath === "/contact" ? "active" : ""}>
-          <Link to="/contact">Contact</Link>
+          <Link
+            to="/contact"
+            onClick={() => {
+              menuToggle();
+            }}
+          >
+            Contact
+          </Link>
         </li>
         {openMenu && (
           <div
@@ -50,7 +78,7 @@ const NavBar = () => {
             menuToggle();
           }}
         >
-          <FaBars />
+          <FaBars color="white"/>
         </div>
       )}
     </nav>

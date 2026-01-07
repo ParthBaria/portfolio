@@ -1,12 +1,23 @@
-import React from "react";
 import "./About.css";
 import img from "../../assets/presentation-21.png";
+import { useState } from "react";
 const About = () => {
+  const [loaded, setLoaded] = useState(false);
   return (
     <section className="about" id="about">
       <div className="about-container">
         <div className="about-left">
-            <img src={img} alt="Web Development Logo" className="profile-img" />
+          <img
+            src={img}
+            alt="Web Development Logo"
+            className="profile-img"
+            loading="lazy"
+            style={{
+              filter: loaded ? "blur(0)" : "blur(20px)",
+              transition: "filter 0.4s ease",
+            }}
+            onLoad={() => setLoaded(true)}
+          />
         </div>
 
         <div className="about-right">
@@ -28,7 +39,7 @@ const About = () => {
                 href="https://www.linkedin.com/in/parth-baria-bbb563265/"
                 target="_blank"
                 rel="noreferrer"
-                 style={{ textDecoration: "underline" }}
+                style={{ textDecoration: "underline" }}
               >
                 LinkedIn
               </a>
@@ -38,7 +49,6 @@ const About = () => {
               <a
                 href="https://github.com/ParthBaria"
                 target="_blank"
-          
                 rel="noreferrer"
                 style={{ textDecoration: "underline" }}
               >

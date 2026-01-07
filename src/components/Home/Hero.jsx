@@ -2,12 +2,27 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "motion/react";
+import { FaHtml5, FaCss3Alt, FaGit, FaGithub } from "react-icons/fa";
+import { SiJavascript, SiNodedotjs, SiReact } from "react-icons/si";
+
 import cowroking from "../../assets/coworking-31.png";
+
+const skills = [
+  { name: "HTML5", icon: <FaHtml5 /> },
+  { name: "CSS", icon: <FaCss3Alt /> },
+  { name: "JavaScript", icon: <SiJavascript /> },
+  { name: "Node.js", icon: <SiNodedotjs /> },
+  { name: "React", icon: <SiReact /> },
+  { name: "Git", icon: <FaGit /> },
+  { name: "GitHub", icon: <FaGithub /> },
+];
+
 const Hero = () => {
   const navigate = useNavigate();
   const skillRef = useRef(null);
   const lineRef = useRef(null);
   const [visibleItems, setVisibleItems] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: skillRef,
@@ -70,29 +85,32 @@ const Hero = () => {
           </div>
         </div>
         <div className="cowork-container">
-          <img src={cowroking} alt="cowroking" />
+          <img
+            src={cowroking}
+            loading="lazy"
+            alt="cowroking"
+            style={{
+              filter: loaded ? "blur(0)" : "blur(20px)",
+              transition: "filter 0.4s ease",
+            }}
+            onLoad={() => setLoaded(true)}
+          />
         </div>
       </section>
 
       {/* Skills Bar */}
       <section className="skills" ref={skillRef}>
         <motion.div ref={lineRef} className="scroll-line" style={{ width }} />
+
         <ul>
-          {[
-            "HTML5",
-            "CSS",
-            "JavaScript",
-            "Node.js",
-            "React",
-            "Git",
-            "GitHub",
-          ].map((skill, i) => (
+          {skills.map((skill, i) => (
             <li
               key={i}
               data-index={i}
               className={visibleItems.includes(String(i)) ? "active" : ""}
             >
-              {skill}
+              <span className="icon">{skill.icon}</span>
+              <span className="text">{skill.name}</span>
             </li>
           ))}
         </ul>
