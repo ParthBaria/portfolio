@@ -3,14 +3,16 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
-  font-family: 'Poppins', sans-serif;
+
+  font-family: "Poppins", sans-serif;
   background-color: #0f172a;
   color: #f8fafc;
   scroll-behavior: smooth;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
@@ -18,6 +20,16 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.logo_app {
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  align-items: center;      /* vertical centering */
+  font-size: larger;
+  height: 100vh;            /* full viewport height */
+  width: 100vw;             /* full viewport width */
+  margin: 0;                /* remove any default margin */
+}
+
 
 .btn {
   padding: 10px 20px;
@@ -98,7 +110,7 @@ a {
   font-size: 7.5rem;
 }
 
-.hero-text h1::before{
+.hero-text h1::before {
   content: "______";
   color: #f97316;
   width: 32%;
@@ -106,8 +118,6 @@ a {
   height: 2px;
   margin-left: -82px;
 }
-
-
 
 .hero-text h1 {
   font-size: 3rem;
@@ -160,7 +170,8 @@ a {
   color: gray;
 }
 
-/* ---------- About Section ---------- */.about {
+/* ---------- About Section ---------- */
+.about {
   padding: 80px 10%;
   background-color: #0f172a;
   color: #fff;
@@ -229,7 +240,6 @@ a {
     text-align: center;
   }
 }
-
 
 /* ---------- Projects ---------- */
 .projects {

@@ -1,12 +1,23 @@
 import "./About.css";
 import img from "../../assets/presentation-21.png";
 import { useState } from "react";
+import { motion } from "motion/react";
 const About = () => {
   const [loaded, setLoaded] = useState(false);
   return (
     <section className="about" id="about">
       <div className="about-container">
-        <div className="about-left">
+        <motion.div
+          className="about-left"
+          initial={{ x: -100 }}
+          animate={{
+            x: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOutQuient",
+          }}
+        >
           <img
             src={img}
             alt="Web Development Logo"
@@ -18,11 +29,31 @@ const About = () => {
             }}
             onLoad={() => setLoaded(true)}
           />
-        </div>
+        </motion.div>
 
         <div className="about-right">
-          <h2>About Me</h2>
-          <p>
+          <motion.h2
+            initial={{ x: 140 }}
+            animate={{
+              x: 0,
+            }}
+            transition={{
+              duration: 0.5,
+              ease: "easeOutQuient",
+            }}
+          >
+            About Me
+          </motion.h2>
+          <motion.p
+            initial={{ x: 140 }}
+            animate={{
+              x: 0,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: "easeOutQuient",
+            }}
+          >
             I’m a MERN Stack Developer passionate about building complete,
             high-performance web applications from front to back. I enjoy
             crafting dynamic user interfaces with React and bringing them to
@@ -62,7 +93,7 @@ const About = () => {
             collaborate with creative teams, and continue growing as a
             developer. If you’re looking for someone who can build, optimize,
             and maintain scalable web solutions — let’s connect.
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>

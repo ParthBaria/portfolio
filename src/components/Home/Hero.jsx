@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform } from "motion/react";
 import { FaHtml5, FaCss3Alt, FaGit, FaGithub } from "react-icons/fa";
 import { SiJavascript, SiNodedotjs, SiReact } from "react-icons/si";
-
 import cowroking from "../../assets/coworking-31.png";
 
 const skills = [
@@ -17,21 +16,76 @@ const skills = [
   { name: "GitHub", icon: <FaGithub /> },
 ];
 
+const nameText = "I am Parth";
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+const ScrambleLetter = ({ char }) => {
+  const [display, setDisplay] = useState(char);
+  const intervalRef = useRef(null);
+
+  const scramble = () => {
+    let iterations = 0;
+    clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      setDisplay(
+        iterations > 6
+          ? char
+          : LETTERS[Math.floor(Math.random() * LETTERS.length)]
+      );
+      iterations++;
+      if (iterations > 6) {
+        clearInterval(intervalRef.current);
+        setDisplay(char);
+      }
+    }, 30);
+  };
+
+  const reset = () => {
+    clearInterval(intervalRef.current);
+    setDisplay(char);
+  };
+
+  useEffect(() => {
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  if (char === " ") {
+    return <span style={{ width: "0.5em" }} />;
+  }
+
+  return (
+    <motion.span
+      onMouseEnter={scramble}
+      onMouseLeave={reset}
+      whileHover={{ scale: 1.3, color: "#fb923c" }}
+      transition={{ type: "spring", stiffness: 260, damping: 18 }}
+      className="inline-block cursor-pointer"
+    >
+      {display}
+    </motion.span>
+  );
+};
+
 const Hero = () => {
   const navigate = useNavigate();
   const skillRef = useRef(null);
-  const lineRef = useRef(null);
+
   const [visibleItems, setVisibleItems] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  
 
   const { scrollYProgress } = useScroll({
     target: skillRef,
     offset: ["start end", "end start"],
   });
+
   const width = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
-    const skillItems = skillRef.current.querySelectorAll("li");
+    const items = skillRef.current.querySelectorAll("li");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,64 +98,123 @@ const Hero = () => {
           }
         });
       },
-      {
-        root: null, // observe relative to viewport
-        threshold: 0.5, // trigger when 50% of li visible
-      }
+      { threshold: 0.5 }
     );
 
-    skillItems.forEach((item) => observer.observe(item));
-
+    items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
-
-  const goToProjects = () => {
-    navigate("/projects");
-  };
-
-  const openResume = () => {
-    window.open(
-      "https://drive.google.com/file/d/1DW4C760mIUFlJrMBsVkdhiuqEmdNTO9h/view?usp=drive_link",
-      "_blank"
-    );
-  };
 
   return (
     <>
       <section className="hero" id="home">
         <div className="hero-text">
-          <h3>
-            Hello<span className=" highlight">.</span>
-          </h3>
-          <h1> I'm Parth</h1>
-          <h2>Web Developer</h2>
-          <div className="hero-buttons">
-            <button className="btn primary" onClick={goToProjects}>
+          <motion.h3
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            Hello<span className="highlight">.</span>
+          </motion.h3>
+
+          {/* NAME */}
+          <motion.h1
+            initial={{ x: -130 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex font-bold cursor-pointer select-none"
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {nameText.split("").map((char, index) => {
+              if (char === " ") {
+                return <span key={index} style={{ width: "0.6em" }} />;
+              }
+
+              return (
+                <motion.span
+                  key={index}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  animate={{
+                    scale:
+                      hoveredIndex === null
+                        ? 1
+                        : hoveredIndex === index
+                        ? 1.8
+                        : 0.75,
+                    color:
+                      hoveredIndex === index
+                        ? "#fb923c"
+                        : "#ffffff",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 280,
+                    damping: 16,
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </motion.h1>
+
+          {/* SCRAMBLE */}
+          <motion.h2
+  initial={{ x: -140 }}
+  animate={{ x: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="flex select-none"
+>
+  {"Web Developer".split("").map((char, index) => (
+    <ScrambleLetter key={index} char={char} />
+  ))}
+</motion.h2>
+
+
+          <motion.div
+            className="hero-buttons"
+            initial={{ x: -140, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <button className="btn primary" onClick={() => navigate("/projects")}>
               Got a project?
             </button>
-            <button className="btn secondary" onClick={openResume}>
+            <button
+              className="btn secondary"
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1DW4C760mIUFlJrMBsVkdhiuqEmdNTO9h/view",
+                  "_blank"
+                )
+              }
+            >
               My resume
             </button>
-          </div>
+          </motion.div>
         </div>
-        <div className="cowork-container">
+
+        <motion.div
+          className="cowork-container"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <img
             src={cowroking}
             loading="lazy"
-            alt="cowroking"
+            alt="coworking"
             style={{
               filter: loaded ? "blur(0)" : "blur(20px)",
               transition: "filter 0.4s ease",
             }}
             onLoad={() => setLoaded(true)}
           />
-        </div>
+        </motion.div>
       </section>
 
-      {/* Skills Bar */}
       <section className="skills" ref={skillRef}>
-        <motion.div ref={lineRef} className="scroll-line" style={{ width }} />
-
+        <motion.div className="scroll-line" style={{ width }} />
         <ul>
           {skills.map((skill, i) => (
             <li
