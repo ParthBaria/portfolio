@@ -184,7 +184,7 @@ const Hero = () => {
               className="btn secondary"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1DW4C760mIUFlJrMBsVkdhiuqEmdNTO9h/view",
+                  "https://drive.google.com/file/d/1T8puh_ZteyZ-SvPINVFtz8JeETwRO_bF/view?usp=sharing",
                   "_blank"
                 )
               }
