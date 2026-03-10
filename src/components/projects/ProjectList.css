@@ -2,10 +2,9 @@
   background-color: #1e293b;
   color: white;
   text-align: center;
-  padding: 0;
   position: relative;
+  padding-top: 2rem;
 }
-
 
 .project-stack {
   display: flex;
@@ -22,12 +21,11 @@
   background-color: #0f172a;
   border: 1px solid #334155;
   border-radius: 15px;
-  padding: 50px;
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.projectWrapper{
+.projectWrapper {
   display: flex;
   justify-content: center;
 }
@@ -79,13 +77,216 @@
 .card-index {
   color: #f97316;
   margin: 0;
-  font-family: "Azeret Mono", monospace;
   font-size: 50px;
   font-weight: 700;
   letter-spacing: -3px;
   line-height: 1.2;
   position: absolute;
   display: inline-block;
-  top: calc(50% - 25px);
+  top: calc(95% - 25px);
   left: calc(50% + 10rem);
+  position: absolute;
+  right: 40px;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: rgba(249, 115, 22, 0.35);
+  font-family: "Azeret Mono", monospace;
+}
+
+/* SPLIT CARD */
+.project-card.split {
+  display: flex;
+  width: 70%;
+  height: 65vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGE SIDE */
+.project-image {
+  width: 50%;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FLOATING BUTTONS */
+.image-actions {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CIRCULAR BUTTON */
+.action-btn {
+  display: flex;
+  align-items: center;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 12px;
+  color: #f97316;
+  overflow: hidden;
+
+  transition: box-shadow 0.3s ease;
+}
+
+/* ICON */
+.action-btn .icon {
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+}
+
+/* LABEL (BOOKMARK EFFECT) */
+.action-btn .label {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  color: #f1f5f9;
+}
+
+/* RIGHT CONTENT */
+.project-content {
+  width: 50%;
+  padding: 40px;
+  text-align: left;
+}
+.project-card.image-bg {
+  height: 70vh;
+  width: 55%;
+  position: relative;
+  margin: 40px 0;
+
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+
+  border-radius: 16px;
+  border: 1px solid #334155;
+  overflow: hidden;
+}
+
+/* SEMI-TRANSPARENT OVERLAY */
+.project-overlay {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: left;
+  transition: background2s ease;
+  gap: 10px;
+}
+
+.img-bg {
+  width: 50%;
+}
+.image-wrapper {
+  width: 100%;
+  height: 200px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-fallback {
+  font-size: 48px;
+  color: #64748b;
+}
+
+
+.img-bg img {
+  width: 100%;
+  height: 70%;
+}
+/* TEXT */
+.project-overlay h3 {
+  color: #f97316;
+  font-size: 2rem;
+}
+
+.project-overlay p {
+  color: #e2e8f0;
+  max-width: 600px;
+  margin: 15px 0;
+}
+
+.project-details {
+  width: 50%;
+}
+/* TECH STACK */
+.tech-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+}
+
+.tech-list li {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid #334155;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* YOUR INDEX — SAFE */
+
+@media (max-width: 550px) {
+  .project-card.image-bg {
+    padding: 25px;
+    height: 40vh;
+    background-size: auto;
+    background-position: left;
+    width: 80%;
+  }
+  .project-overlay {
+    background: transparent;
+  }
+  .project-overlay p {
+    padding-right: 10px;
+  }
+  .project-details {
+    width: 100%;
+    margin-left: 0;
+  }
+  .img-bg {
+    display: none;
+  }
+  .image-actions {
+    right: 10px;
+    left: auto;
+  }
+  
+  .project-overlay {
+    justify-content: end;
+    padding: 5px;
+  }
+
+  .tech-list {
+    max-width: 200px;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    padding-left: 10px;
+  }
+  .tech-list li {
+    background-color: rgb(30, 41, 59);
+    padding: 2px 6px;
+  }
+  .card-index {
+    left: calc(50% + 1rem);
+    top: calc(95% - -16px);
+  }
+  .progress-bar{
+    bottom: 87px;
+  }
 }

@@ -1,16 +1,32 @@
 .hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* exact 50 / 50 */
+  align-items: center;
+  padding: 0 80px;
+  background: #0f172a;
+}
+
+/* Left side */
+.hero-text {
+  max-width: 520px;
+}
+
+/* Right side */
+.cowork-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 120px 10% 80px;
-  min-height: 100vh;
+  justify-content: center;
 }
 
-.hero-text {
-  max-width: 600px;
+.cowork-container img {
+  max-width: 100%;
+  height: auto;
 }
 
-.hero-text h3 { font-size: 7.5rem; }
+.hero-text h3 {
+  font-size: 7.5rem;
+}
 
 .hero-text h1::before {
   content: "______";
@@ -21,13 +37,21 @@
   margin-left: -82px;
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  color: #f8fafc;
-  font-weight: lighter;
+.hero h1 {
+  line-height: 1.5;
+  overflow: visible;
 }
 
-.hero-text .highlight { color: #f97316; }
+.hero h1 span {
+  display: inline-block;
+  transform-origin: center bottom;
+  font-size: larger;
+}
+
+
+.hero-text .highlight {
+  color: #f97316;
+}
 
 .hero-text h2 {
   font-size: 4.8rem;
@@ -47,17 +71,16 @@
   box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
 }
 
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .hero-img img {
-    width: 200px;
-    margin-bottom: 20px;
-  }
+.skills ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+
+.skills .icon {
+  font-size: 22px;
+}
+
 
 .skills {
   background-color: #1e293b;
@@ -79,4 +102,70 @@
   font-size: 0.9rem;
   font-weight: bolder;
   color: gray;
+  z-index: 3;
+}
+.skills li.active {
+  color: whitesmoke;
+}
+
+.skills {
+  position: relative;
+  padding: 40px;
+}
+
+.scroll-line {
+  height: 4px;
+  background-color: #f97316;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform-origin: left;
+}
+
+
+@media (max-width: 550px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: left;
+  }
+
+  .scroll-line {
+    top: 0%;
+    left: calc(50% - 3.7rem);
+    transform: rotate(90deg);
+  }
+.skills ul{
+  flex-direction: column;
+  align-content: center;
+}
+  .hero-img img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .hero-text h3 {
+    font-size: 5.5rem;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-text h2 {
+    font-size: 3.8rem;
+  }
+  .hero {
+    padding: 0 20px;
+  }
+  .cowork-container img {
+    max-width: 10rem;
+    height: auto;
+  }
+  .cowork-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .btn {
+    padding: 7px 4px;
+  }
 }
