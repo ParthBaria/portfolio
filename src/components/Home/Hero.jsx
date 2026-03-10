@@ -2,15 +2,19 @@ import React from "react";
 import "./Hero.css";
 import { useNavigate } from "react-router-dom";
 const Hero = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const goToProjects = () => {
     navigate("/projects"); // navigate to Projects page
   };
 
   const openResume = () => {
-    window.open("https://drive.google.com/file/d/1DW4C760mIUFlJrMBsVkdhiuqEmdNTO9h/view?usp=drive_link", "_blank"); // open resume in new tab
+    window.open(
+      "https://drive.google.com/file/d/1T8puh_ZteyZ-SvPINVFtz8JeETwRO_bF/view?usp=sharing",
+      "_blank",
+    );
   };
+
   return (
     <>
       <section className="hero" id="home">
