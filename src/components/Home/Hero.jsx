@@ -197,34 +197,12 @@ const Hero = () => {
     damping: 20,
   });
 
-  const imageX = useTransform(smoothX, [-1, 1], [-15, 15]);
-  const imageY = useTransform(smoothY, [-1, 1], [-10, 10]);
-
-  const glowX = useTransform(smoothX, [-1, 1], [-25, 25]);
-  const glowY = useTransform(smoothY, [-1, 1], [-20, 20]);
-
-
-  const handleMouseMove = (event) => {
-    if (!heroRef.current) return;
-
-    const rect = heroRef.current.getBoundingClientRect();
-
-    const x =
-      (event.clientX - rect.left) / rect.width - 0.5;
-
-    const y =
-      (event.clientY - rect.top) / rect.height - 0.5;
-
-    mouseX.set(x);
-    mouseY.set(y);
+  const openResume = () => {
+    window.open(
+      "https://drive.google.com/file/d/1T8puh_ZteyZ-SvPINVFtz8JeETwRO_bF/view?usp=sharing",
+      "_blank",
+    );
   };
-
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
 
   return (
     <>
