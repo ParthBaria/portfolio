@@ -2,100 +2,252 @@ import "./About.css";
 import img from "../../assets/presentation-21.png";
 import { useState } from "react";
 import { motion } from "motion/react";
+
 const About = () => {
   const [loaded, setLoaded] = useState(false);
+
   return (
-    <section className="about" id="about">
-      <div className="about-container">
+    <section className="about-v2" id="about">
+
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
+      <div className="about-top">
+
         <motion.div
-          className="about-left"
-          initial={{ x: -100 }}
-          animate={{
-            x: 0,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeOutQuient",
-          }}
+          className="about-index"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
         >
-          <img
-            src={img}
-            alt="Web Development Logo"
-            className="profile-img"
-            loading="lazy"
-            style={{
-              filter: loaded ? "blur(0)" : "blur(20px)",
-              transition: "filter 0.4s ease",
-            }}
-            onLoad={() => setLoaded(true)}
-          />
+          <span>01</span>
+          <div />
+          <span>ABOUT ME</span>
         </motion.div>
 
-        <div className="about-right">
-          <motion.h2
-            initial={{ x: 140 }}
-            animate={{
-              x: 0,
-            }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOutQuient",
-            }}
-          >
-            About Me
-          </motion.h2>
-          <motion.p
-            initial={{ x: 140 }}
-            animate={{
-              x: 0,
-            }}
-            transition={{
-              duration: 0.7,
-              ease: "easeOutQuient",
-            }}
-          >
-            I’m a MERN Stack Developer passionate about building complete,
-            high-performance web applications from front to back. I enjoy
-            crafting dynamic user interfaces with React and bringing them to
-            life through robust Node.js and MongoDB backends. My goal is to
-            create seamless digital experiences that are both functional and
-            visually engaging.
-            <br />
-            <br />I love sharing my knowledge about full-stack development,
-            JavaScript, and modern web technologies to help others in the
-            developer community. You can find me on{" "}
-            <span>
-              {" "}
-              <a
-                href="https://www.linkedin.com/in/parth-baria-bbb563265/"
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: "underline" }}
-              >
-                LinkedIn
-              </a>
-            </span>{" "}
-            and{" "}
-            <span>
-              <a
-                href="https://github.com/ParthBaria"
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: "underline" }}
-              >
-                GitHub
-              </a>
-            </span>
-            , where I post insights, projects, and technical breakdowns.
-            <br />
-            <br />
-            I’m open to exciting opportunities where I can apply my skills,
-            collaborate with creative teams, and continue growing as a
-            developer. If you’re looking for someone who can build, optimize,
-            and maintain scalable web solutions — let’s connect.
-          </motion.p>
-        </div>
+        <motion.p
+          className="about-top-note"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          A developer who enjoys turning ideas
+          into useful digital experiences.
+        </motion.p>
+
       </div>
+
+
+      {/* =================================================
+          MAIN
+      ================================================= */}
+
+      <div className="about-main">
+
+        {/* =================================================
+            IMAGE
+        ================================================= */}
+
+        <motion.div
+          className="about-visual"
+          initial={{
+            opacity: 0,
+            x: -70,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.25,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+
+          <div className="about-image-frame">
+
+            <img
+              src={img}
+              alt="Parth working on web development"
+              className="about-image"
+              loading="lazy"
+              onLoad={() => setLoaded(true)}
+              style={{
+                opacity: loaded ? 1 : 0,
+              }}
+            />
+
+            <div className="about-image-overlay" />
+
+          </div>
+
+
+          {/* Image metadata */}
+
+          <div className="about-image-meta">
+
+            <span>BASED IN INDIA</span>
+
+            <span>·</span>
+
+            <span>WEB DEVELOPER</span>
+
+          </div>
+
+        </motion.div>
+
+
+        {/* =================================================
+            CONTENT
+        ================================================= */}
+
+        <motion.div
+          className="about-content"
+          initial={{
+            opacity: 0,
+            x: 70,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.25,
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+
+          <h2>
+            Building things
+            <br />
+            <span>that actually work.</span>
+          </h2>
+
+
+          <div className="about-line" />
+
+
+          <p className="about-lead">
+            I'm a MERN Stack Developer focused on
+            building modern, scalable web applications
+            from frontend to backend.
+          </p>
+
+
+          <p className="about-text">
+            I enjoy working with React, Node.js and
+            MongoDB to turn ideas into complete digital
+            products. For me, good development isn't
+            just about making something function. It's
+            about making it fast, intuitive and enjoyable
+            to use.
+          </p>
+
+
+          <p className="about-text">
+            I'm also interested in understanding what
+            happens underneath the interface, from
+            JavaScript runtimes and system design to
+            application architecture and deployment.
+          </p>
+
+
+          {/* =================================================
+              LINKS
+          ================================================= */}
+
+          <div className="about-links">
+
+            <a
+              href="https://www.linkedin.com/in/parth-baria-bbb563265/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+              <span>↗</span>
+            </a>
+
+            <a
+              href="https://github.com/ParthBaria"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+              <span>↗</span>
+            </a>
+
+          </div>
+
+        </motion.div>
+
+      </div>
+
+
+      {/* =================================================
+          BOTTOM INFORMATION
+      ================================================= */}
+
+      <motion.div
+        className="about-bottom"
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.3,
+        }}
+        transition={{
+          duration: 0.6,
+        }}
+      >
+
+        <div className="about-stat">
+          <span className="about-stat-number">MERN</span>
+          <span className="about-stat-label">
+            Primary Stack
+          </span>
+        </div>
+
+
+        <div className="about-stat">
+          <span className="about-stat-number">FULL</span>
+          <span className="about-stat-label">
+            Stack Development
+          </span>
+        </div>
+
+
+        <div className="about-stat">
+          <span className="about-stat-number">01</span>
+          <span className="about-stat-label">
+            Developer mindset
+          </span>
+        </div>
+
+
+        <div className="about-availability">
+          <span className="about-availability-dot" />
+          Open to opportunities
+        </div>
+
+      </motion.div>
+
     </section>
   );
 };
